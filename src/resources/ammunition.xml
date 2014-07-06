@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ammunition>
+    <helm>
+        <price>800</price>
+        <weight>1.5</weight>
+        <companyName>BMW</companyName>
+        <color>White</color>
+        <helmType>FULL_FACE</helmType>
+    </helm>
+    <boots>
+        <price>500</price>
+        <weight>1.0</weight>
+        <companyName>Fox</companyName>
+        <color>Black</color>
+        <bootsType>SPORT_BOOTS</bootsType>
+    </boots>
+    <gloves>
+        <price>300</price>
+        <weight>0.2</weight>
+        <companyName>Fox</companyName>
+        <color>White</color>
+        <ammunitionMaterial>Textile</ammunitionMaterial>
+        <isProtected>false</isProtected>
+    </gloves>
+    <jacket>
+        <price>1500</price>
+        <weight>2.3</weight>
+        <companyName>Honda</companyName>
+        <color>Black</color>
+        <jacketType>RACE</jacketType>
+        <ammunitionMaterial>LEATHER</ammunitionMaterial>
+    </jacket>
+    <pants>
+        <price>1000</price>
+        <weight>1.8</weight>
+        <companyName>Fox</companyName>
+        <color>White</color>
+        <helmType>FULL_FACE</helmType>
+        <haveKevlar>false</haveKevlar>
+        <ammunitionMaterial>TEXTILE</ammunitionMaterial>
+    </pants>
+</ammunition>

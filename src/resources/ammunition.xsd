@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ammunition" type="ammunitionType"/>
+  <xs:complexType name="pants">
+    <xs:sequence>
+      <xs:element type="xs:positiveInteger" name="price"/>
+      <xs:element type="xs:double" name="weight"/>
+      <xs:element type="xs:string" name="companyName"/>
+      <xs:element type="xs:string" name="color"/>
+      <xs:element type="xs:string" name="helmType"/>
+      <xs:element type="xs:boolean" name="haveKevlar"/>
+      <xs:element type="xs:string" name="ammunitionMaterial"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="boots">
+    <xs:sequence>
+      <xs:element type="xs:positiveInteger" name="price"/>
+      <xs:element type="xs:double" name="weight"/>
+      <xs:element type="xs:string" name="companyName"/>
+      <xs:element type="xs:string" name="color"/>
+      <xs:element type="xs:string" name="bootsType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="jacket">
+    <xs:sequence>
+      <xs:element type="xs:positiveInteger" name="price"/>
+      <xs:element type="xs:double" name="weight"/>
+      <xs:element type="xs:string" name="companyName"/>
+      <xs:element type="xs:string" name="color"/>
+      <xs:element type="xs:string" name="jacketType"/>
+      <xs:element type="xs:string" name="ammunitionMaterial"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ammunitionType">
+    <xs:sequence>
+      <xs:element type="helm" name="helm"/>
+      <xs:element type="boots" name="boots"/>
+      <xs:element type="gloves" name="gloves"/>
+      <xs:element type="jacket" name="jacket"/>
+      <xs:element type="pants" name="pants"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="helm">
+    <xs:sequence>
+      <xs:element type="xs:positiveInteger" name="price"/>
+      <xs:element type="xs:double" name="weight"/>
+      <xs:element type="xs:string" name="companyName"/>
+      <xs:element type="xs:string" name="color"/>
+      <xs:element type="xs:string" name="helmType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="gloves">
+    <xs:sequence>
+      <xs:element type="xs:positiveInteger" name="price"/>
+      <xs:element type="xs:double" name="weight"/>
+      <xs:element type="xs:string" name="companyName"/>
+      <xs:element type="xs:string" name="color"/>
+      <xs:element type="xs:string" name="ammunitionMaterial"/>
+      <xs:element type="xs:boolean" name="isProtected"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

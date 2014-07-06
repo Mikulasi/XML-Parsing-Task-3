@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="ammunition" abstract="true">
+    <xs:sequence>
+      <xs:element name="color" type="xs:string" minOccurs="0"/>
+      <xs:element name="companyName" type="xs:string" minOccurs="0"/>
+      <xs:element name="price" type="xs:int"/>
+      <xs:element name="weight" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ammunitionMaterial">
+      <xs:restriction base="xs:string">
+          <xs:enumeration value="LEATHER"/>
+          <xs:enumeration value="DENIM"/>
+          <xs:enumeration value="TEXTILE"/>
+      </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="boots">
+    <xs:complexContent>
+        <xs:extension base="ammunition">
+            <xs:sequence>
+                <xs:element name="bootsType">
+                    <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="SPORT_BOOTS"/>
+                        <xs:enumeration value="ENDURO_BOOTS"/>
+                        <xs:enumeration value="TOURIST_BOOTS"/>
+                        <xs:enumeration value="STREET_BOOTS"/>
+                        <xs:enumeration value="CHOPPER_BOOTS"/>
+                    </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+            </xs:sequence>
+        </xs:extension>
+    </xs:complexContent>
+</xs:complexType>
+    <xs:complexType name="gloves">
+        <xs:complexContent>
+            <xs:extension base="ammunition">
+                <xs:sequence>
+                    <xs:element name="isProtected" type="xs:boolean"/>
+                </xs:sequence>
+            </xs:extension>
+            <xs:extension base="ammunitionMaterial">
+                <xs:sequence/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="helm">
+        <xs:complexContent>
+            <xs:extension base="ammunition">
+                <xs:sequence/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="pants">
+        <xs:complexContent>
+            <xs:extension base="ammunition">
+                <xs:sequence>
+                    <xs:element name="haveKevlar" type="xs:boolean"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="jacket">
+        <xs:complexContent>
+            <xs:extension base="ammunition">
+                <xs:sequence>
+                    <!--<xs:element name="ammunitionMaterial">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="LEATHER"/>
+                                <xs:enumeration value="DENIM"/>
+                                <xs:enumeration value="TEXTILE"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>-->
+                    <xs:element name="jacketType">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="CLASSIC"/>
+                                <xs:enumeration value="RETRO"/>
+                                <xs:enumeration value="RACE"/>
+                                <xs:enumeration value="RAIN"/>
+                                <xs:enumeration value="SPORT"/>
+                                <xs:enumeration value="TOURING"/>
+                                <xs:enumeration value="TRADITIONAL"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>
+
