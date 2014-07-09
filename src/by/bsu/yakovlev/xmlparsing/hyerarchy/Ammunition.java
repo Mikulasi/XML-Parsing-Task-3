@@ -5,14 +5,16 @@ public abstract class Ammunition implements Comparable {
     private double weight;
     private String companyName;
     private String color;
+    private String id;
 
     public Ammunition(){};
-    public Ammunition(int price, double weight, String companyName, String color) {
+    public Ammunition(int price, double weight, String companyName, String color, String id) {
         if (price < 0) throw new RuntimeException("Price couldn't be less than zero!");
         this.price = price;
         this.weight = weight;
         this.companyName = companyName;
         this.color = color;
+        this.id = id;
     }
 
     public int getPrice() {
@@ -46,6 +48,11 @@ public abstract class Ammunition implements Comparable {
     public void setColor(String color) {
         this.color = color;
     }
+
+    public void setId(String id){
+        this.id = id;
+    }
+
 
     @Override
     public String toString() {

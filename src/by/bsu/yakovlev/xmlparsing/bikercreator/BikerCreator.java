@@ -10,11 +10,11 @@ public class BikerCreator {
     public static List<Ammunition> createAllAmmun() {
         List<Ammunition> allAmmun = new ArrayList<>();
 
-        Helm helm = new Helm(800, 1.5, "BMW", "White", Helm.HelmType.FULL_FACE);
-        Jacket jacket = new Jacket(1500, 2.3, "Honda", "Black", Jacket.JacketType.RACE, AmmunitionMaterial.LEATHER);
-        Pants pants = new Pants(1000, 1.8, "Fox", "White", false, AmmunitionMaterial.TEXTILE);
-        Gloves gloves = new Gloves(300, 0.2, "Fox", "White", AmmunitionMaterial.TEXTILE, false);
-        Boots boots = new Boots(500, 1, "Fox", "Black", Boots.BootsType.SPORT_BOOTS);
+        Helm helm = new Helm(800, 1.5, "BMW", "White", Helm.HelmType.FULL_FACE,"");
+        Jacket jacket = new Jacket(1500, 2.3, "Honda", "Black", Jacket.JacketType.RACE, AmmunitionMaterial.LEATHER,"");
+        Pants pants = new Pants(1000, 1.8, "Fox", "White", false, AmmunitionMaterial.TEXTILE,"");
+        Gloves gloves = new Gloves(300, 0.2, "Fox", "White", AmmunitionMaterial.TEXTILE, false,"");
+        Boots boots = new Boots(500, 1, "Fox", "Black", Boots.BootsType.SPORT_BOOTS,"");
 
         allAmmun.add(helm);
         allAmmun.add(jacket);

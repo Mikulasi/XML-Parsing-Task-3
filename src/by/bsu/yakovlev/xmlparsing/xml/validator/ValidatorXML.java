@@ -11,8 +11,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class ValidatorXML {
-    public static final String XML_PATH = ".\\src\\resources\\ammunition.xml";
-    public static final String XSD_PATH = ".\\src\\resources\\ammunition.xsd";
+    public static final String XML_PATH = "src/resources/ammunition.xml";
+    public static final String XSD_PATH = "src/resources/ammunition-local.xsd";
 
     public static boolean validate(String xmlFilePath, String xsdFilePath) {
 

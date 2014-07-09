@@ -6,8 +6,8 @@ package by.bsu.yakovlev.xmlparsing.hyerarchy;
 
         public Gloves(){};
         public Gloves(int price, double weight, String companyName, String color,
-                  AmmunitionMaterial ammunitionMaterial, boolean isProtected){
-        super(price,weight,companyName,color);
+                  AmmunitionMaterial ammunitionMaterial, boolean isProtected, String id){
+        super(price,weight,companyName,color, id);
         this.isProtected = isProtected;
         this.ammunitionMaterial = ammunitionMaterial;
     }

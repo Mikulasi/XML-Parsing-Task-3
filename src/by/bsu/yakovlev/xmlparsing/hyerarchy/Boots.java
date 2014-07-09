@@ -10,8 +10,8 @@ package by.bsu.yakovlev.xmlparsing.hyerarchy;
 
         public Boots(){};
 
-       public Boots(int price, double weight, String companyName, String color, BootsType bootsType) {
-            super(price, weight, companyName, color);
+       public Boots(int price, double weight, String companyName, String color, BootsType bootsType, String id) {
+            super(price, weight, companyName, color, id);
             this.bootsType = bootsType;
         }
 

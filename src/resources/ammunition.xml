@@ -1,42 +1,204 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ammunition>
     <helm>
-        <price>800</price>
-        <weight>1.5</weight>
-        <companyName>BMW</companyName>
-        <color>White</color>
-        <helmType>FULL_FACE</helmType>
+        <helm-types>
+            <helm-type id="h1">
+                <helm-name>FULL_FACE</helm-name>
+                <company-name>BMW</company-name>
+                <price>800</price>
+                <weight>1.5</weight>
+                <color>White</color>
+            </helm-type>
+            <helm-type id="h2">
+                <helm-name>FLIP_UP</helm-name>
+                <company-name>Fox</company-name>
+                <price>700</price>
+                <weight>1.2</weight>
+                <color>Green</color>
+            </helm-type>
+            <helm-type id="h3">
+                <helm-name>OPEN_FACE</helm-name>
+                <company-name>Safebet</company-name>
+                <price>600</price>
+                <weight>1.0</weight>
+                <color>Black</color>
+            </helm-type>
+            <helm-type id="h4">
+                <helm-name>HALF_HELMET</helm-name>
+                <company-name>Vega</company-name>
+                <price>500</price>
+                <weight>1.6</weight>
+                <color>Black</color>
+            </helm-type>
+            <helm-type id="h5">
+                <helm-name>OFF_ROAD</helm-name>
+                <company-name>Shoei</company-name>
+                <price>1000</price>
+                <weight>1.9</weight>
+                <color>Blue</color>
+            </helm-type>
+            <helm-type id="h6">
+                <helm-name>ENDURO</helm-name>
+                <company-name>Uvex</company-name>
+                <price>1200</price>
+                <weight>1.9</weight>
+                <color>Black</color>
+            </helm-type>
+        </helm-types>
     </helm>
     <boots>
-        <price>500</price>
-        <weight>1.0</weight>
-        <companyName>Fox</companyName>
-        <color>Black</color>
-        <bootsType>SPORT_BOOTS</bootsType>
+        <boots-types>
+            <boots-type id="b1">
+                <boots-name>SPORT_BOOTS</boots-name>
+                <company-name>Fox</company-name>
+                <price>500</price>
+                <weight>1.0</weight>
+                <color>Black</color>
+            </boots-type>
+            <boots-type id="b2">
+                <boots-name>ENDURO_BOOTS</boots-name>
+                <company-name>AXO</company-name>
+                <price>600</price>
+                <weight>1.3</weight>
+                <color>Black</color>
+            </boots-type>
+            <boots-type id="b3">
+                <boots-name>TOURIST_BOOTS</boots-name>
+                <company-name>Alpinestars</company-name>
+                <price>800</price>
+                <weight>1.3</weight>
+                <color>White</color>
+            </boots-type>
+            <boots-type id="b4">
+                <boots-name>STREET_BOOTS</boots-name>
+                <company-name>Icon</company-name>
+                <price>500</price>
+                <weight>1.0</weight>
+                <color>Grey</color>
+            </boots-type>
+            <boots-type id="b5">
+                <boots-name>CHOPPER_BOOTS</boots-name>
+                <company-name>Kochmann</company-name>
+                <price>600</price>
+                <weight>1.4</weight>
+                <color>Grey</color>
+            </boots-type>
+        </boots-types>
     </boots>
     <gloves>
-        <price>300</price>
-        <weight>0.2</weight>
-        <companyName>Fox</companyName>
-        <color>White</color>
-        <ammunitionMaterial>Textile</ammunitionMaterial>
-        <isProtected>false</isProtected>
+        <gloves-types>
+            <gloves-type id="g1">
+                <gloves-material>LEATHER</gloves-material>
+                <company-name>Fox</company-name>
+                <price>300</price>
+                <weight>0.2</weight>
+                <color>White</color>
+                <is-protected>true</is-protected>
+            </gloves-type>
+            <gloves-type id="g2">
+                <gloves-material>TEXTILE</gloves-material>
+                <company-name>Fox</company-name>
+                <price>250</price>
+                <weight>0.15</weight>
+                <color>White</color>
+                <is-protected>true</is-protected>
+            </gloves-type>
+            <gloves-type id="g3">
+                <gloves-material>DENIM</gloves-material>
+                <company-name>Fox</company-name>
+                <price>200</price>
+                <weight>0.17</weight>
+                <color>White</color>
+                <is-protected>false</is-protected>
+            </gloves-type>
+        </gloves-types>
     </gloves>
     <jacket>
-        <price>1500</price>
-        <weight>2.3</weight>
-        <companyName>Honda</companyName>
-        <color>Black</color>
-        <jacketType>RACE</jacketType>
-        <ammunitionMaterial>LEATHER</ammunitionMaterial>
+        <jacket-types>
+            <jacket-type id="j1">
+                <jacket-name>RACE</jacket-name>
+                <company-name>Honda</company-name>
+                <price>1500</price>
+                <weight>2.3</weight>
+                <color>Black</color>
+                <jacket-material>LEATHER</jacket-material>
+            </jacket-type>
+            <jacket-type id="j2">
+                <jacket-name>RETRO</jacket-name>
+                <company-name>Xelement</company-name>
+                <price>1800</price>
+                <weight>2.8</weight>
+                <color>Brown</color>
+                <jacket-material>LEATHER</jacket-material>
+            </jacket-type>
+            <jacket-type id="j3">
+                <jacket-name>CLASSIC</jacket-name>
+                <company-name>Buffalo</company-name>
+                <price>1600</price>
+                <weight>2.6</weight>
+                <color>Black</color>
+                <jacket-material>LEATHER</jacket-material>
+            </jacket-type>
+            <jacket-type id="j4">
+                <jacket-name>RAIN</jacket-name>
+                <company-name>Alpinestars</company-name>
+                <price>1000</price>
+                <weight>2.0</weight>
+                <color>Yellow</color>
+                <jacket-material>TEXTILE</jacket-material>
+            </jacket-type>
+            <jacket-type id="j5">
+                <jacket-name>SPORT</jacket-name>
+                <company-name>AGV</company-name>
+                <price>1000</price>
+                <weight>2.0</weight>
+                <color>Black</color>
+                <jacket-material>TEXTILE</jacket-material>
+            </jacket-type>
+            <jacket-type id="j6">
+                <jacket-name>TOURING</jacket-name>
+                <company-name>TMS</company-name>
+                <price>1000</price>
+                <weight>2.0</weight>
+                <color>Black</color>
+                <jacket-material>LEATHER</jacket-material>
+            </jacket-type>
+            <jacket-type id="j7">
+                <jacket-name>TRADITIONAL</jacket-name>
+                <company-name>Topshop</company-name>
+                <price>1100</price>
+                <weight>2.3</weight>
+                <color>Black</color>
+                <jacket-material>LEATHER</jacket-material>
+            </jacket-type>
+        </jacket-types>
     </jacket>
     <pants>
-        <price>1000</price>
-        <weight>1.8</weight>
-        <companyName>Fox</companyName>
-        <color>White</color>
-        <helmType>FULL_FACE</helmType>
-        <haveKevlar>false</haveKevlar>
-        <ammunitionMaterial>TEXTILE</ammunitionMaterial>
+        <pants-types-by-material>
+            <pants-type id="p1">
+                <pants-material>TEXTILE</pants-material>
+                <company-name>Fox</company-name>
+                <price>1000</price>
+                <weight>1.8</weight>
+                <color>White</color>
+                <have-kevlar>false</have-kevlar>
+            </pants-type>
+            <pants-type id="p2">
+                <pants-material>DENIM</pants-material>
+                <company-name>Levis</company-name>
+                <price>400</price>
+                <weight>1.0</weight>
+                <color>Blue</color>
+                <have-kevlar>false</have-kevlar>
+            </pants-type>
+            <pants-type id="p3">
+                <pants-material>LEATHER</pants-material>
+                <company-name>Xelement</company-name>
+                <price>800</price>
+                <weight>1.3</weight>
+                <color>Black</color>
+                <have-kevlar>true</have-kevlar>
+            </pants-type>
+        </pants-types-by-material>
     </pants>
 </ammunition>

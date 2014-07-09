@@ -11,8 +11,8 @@ package by.bsu.yakovlev.xmlparsing.hyerarchy;
 
         public Jacket(){};
         public Jacket(int price, double weight, String companyName,String color,
-                  JacketType jacketType, AmmunitionMaterial ammunitionMaterial){
-        super(price,weight,companyName,color);
+                  JacketType jacketType, AmmunitionMaterial ammunitionMaterial, String id){
+        super(price,weight,companyName,color, id);
         this.jacketType = jacketType;
         this.ammunitionMaterial = ammunitionMaterial;
     }

@@ -8,14 +8,18 @@ package by.bsu.yakovlev.xmlparsing.hyerarchy;
     private HelmType type;
 
         public Helm(){};
-        public Helm(int price, double weight, String companyName, String color,HelmType type){
-        super(price,weight,companyName,color);
+        public Helm(int price, double weight, String companyName, String color,HelmType type, String id){
+        super(price,weight,companyName,color, id);
         this.type = type;
 
     }
     public HelmType getType(){
         return type;
     }
+        public HelmType setType(HelmType type){
+            this.type = type;
+         return type;
+        }
 
     public String toString(){
         return "Helm price: " + getPrice()+ ",Helm weight: "+ getWeight() + ",Helm company name: "+ getCompanyName()+

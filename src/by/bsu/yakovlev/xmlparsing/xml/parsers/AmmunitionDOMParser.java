@@ -1,149 +1,159 @@
 package by.bsu.yakovlev.xmlparsing.xml.parsers;
 
-import by.bsu.yakovlev.xmlparsing.hyerarchy.*;
+import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.IOException;
-import java.util.ArrayList;
+import java.io.File;
 
-public class AmmunitionDOMParser extends AbstractAmmunParser {
+public class AmmunitionDOMParser {
+    public static final Logger LOGGER = Logger.getLogger(AmmunitionDOMParser.class);
+    public static void parse() {
+        /*DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document document = builder.parse(String xmlPath);
+        ArrayList<Ammunition> ammunition = new ArrayList<>();
+        NodeList nodeList = document.getDocumentElement().getChildNodes();
 
-    public ArrayList<Ammunition> parseDocument(String xmlPath) {
+        for (int i = 0; i < nodeList.getLength(); i++) {
+            Node node = nodeList.item(i);
+            if(node instanceof Element){
+                Helm helm = new Helm() {};
+                String getId = helm.getId();
+                getId = node.getAttributes().getNamedItem("id").getNodeValue();
+
+                NodeList childNodes = node.getChildNodes();
+                for(int j=0;j<childNodes.getLength();j++){
+                    Node node1 = childNodes.item(j);
+
+                    if(node1 instanceof Element){
+                        String lastChild = node1.getLastChild().getTextContent().trim();
+                        switch (node1.getNodeName()){
+                            case "helm-name":
+                                Helm.HelmType. = lastChild;*/
+
         try {
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            Document document = builder.parse(xmlPath);
-            Element root = document.getDocumentElement();
-            NodeList nodeList = root.getChildNodes();
-            parseAmmunitionList(nodeList);
-            return ammunition;
-        } catch (ParserConfigurationException | SAXException | IOException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
 
-    private void parseAmmunitionList(NodeList ammunNodeList) {
-        for (int index = 0; index < ammunNodeList.getLength(); index++) {
-            Node ammunNode = ammunNodeList.item(index);
-            if (ammunNode.getNodeType() == Node.ELEMENT_NODE) {
-                Element ammunElement = (Element) ammunNode;
-                Helm helm = new Helm();
+            File fXmlFile = new File("src/resources/ammunition.xml");
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(fXmlFile);
 
-                Element priceElement = (Element) ammunElement.getElementsByTagName("price").item(0);
-                Element weightElement = (Element) ammunElement.getElementsByTagName("weight").item(0);
-                Element companyElement = (Element) ammunElement.getElementsByTagName("companyName").item(0);
-                Element colorElement = (Element) ammunElement.getElementsByTagName("color").item(0);
-                Element helmTypeElement = (Element) ammunElement.getElementsByTagName("helmType").item(0);
+            LOGGER.info("Root element :" + doc.getDocumentElement().getNodeName());
 
-                helm.setPrice(Integer.parseInt(priceElement.getFirstChild().getNodeValue()));
-                helm.setWeight(Double.parseDouble(weightElement.getFirstChild().getNodeValue()));
-                helm.setCompanyName(companyElement.getFirstChild().getNodeValue());
-                helm.setColor(colorElement.getFirstChild().getNodeValue());
+            NodeList hList = doc.getElementsByTagName("helm-type");
 
-                Boots boots = new Boots();
 
-                NodeList bootsNodeList = ammunElement.getElementsByTagName("boots");
-                for (int i = 0; i < bootsNodeList.getLength(); i++) {
-                    Node bootsNode = bootsNodeList.item(i);
-                    if (bootsNode.getNodeType() == Node.ELEMENT_NODE) {
-                        Element bootsElement = (Element) bootsNode;
+            for (int temp = 0; temp < hList.getLength(); temp++) {
 
-                        Element priceBootsElement = (Element) bootsElement.getElementsByTagName("price").item(0);
-                        Element weightBootsElement = (Element) bootsElement.getElementsByTagName("weight").item(0);
-                        Element companyBootsElement = (Element) bootsElement.getElementsByTagName("companyName").item(0);
-                        Element colorBootsElement = (Element) bootsElement.getElementsByTagName("color").item(0);
-                        Element bootsBootsTypeElement = (Element) bootsElement.getElementsByTagName("bootsType").item(0);
+                Node nNode = hList.item(temp);
 
-                        boots.setPrice(Integer.parseInt(priceBootsElement.getFirstChild().getNodeValue()));
-                        boots.setWeight(Double.parseDouble(weightBootsElement.getFirstChild().getNodeValue()));
-                        boots.setCompanyName(companyBootsElement.getFirstChild().getNodeValue());
-                        boots.setColor(colorBootsElement.getFirstChild().getNodeValue());
-                    }
+                LOGGER.info("\nCurrent Element :" + nNode.getNodeName());
+
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+
+                    Element eElement = (Element) nNode;
+
+                    LOGGER.info("Helm id : " + eElement.getAttribute("id"));
+                    LOGGER.info("Helm Type : " + eElement.getElementsByTagName("helm-name").item(0).getTextContent());
+                    LOGGER.info("Company name : " + eElement.getElementsByTagName("company-name").item(0).getTextContent());
+                    LOGGER.info("Price : " + eElement.getElementsByTagName("price").item(0).getTextContent());
+                    LOGGER.info("Weight : " + eElement.getElementsByTagName("weight").item(0).getTextContent());
+                    LOGGER.info("Color : " + eElement.getElementsByTagName("color").item(0).getTextContent());
+
                 }
+            }
+            NodeList bList = doc.getElementsByTagName("boots-type");
+            for (int temp = 0; temp < bList.getLength(); temp++) {
 
-                Gloves gloves = new Gloves();
+                Node bNode = bList.item(temp);
 
-                NodeList glovesNodeList = ammunElement.getElementsByTagName("gloves");
-                for (int i = 0; i < glovesNodeList.getLength(); i++) {
-                    Node glovesNode = glovesNodeList.item(i);
-                    if (glovesNode.getNodeType() == Node.ELEMENT_NODE) {
-                        Element glovesElement = (Element) glovesNode;
+                LOGGER.info("\nCurrent Element :" + bNode.getNodeName());
 
-                        Element priceGlovesElement = (Element) glovesElement.getElementsByTagName("price").item(0);
-                        Element weightGlovesElement = (Element) glovesElement.getElementsByTagName("weight").item(0);
-                        Element companyGlovesElement = (Element) glovesElement.getElementsByTagName("companyName").item(0);
-                        Element colorGlovesElement = (Element) glovesElement.getElementsByTagName("color").item(0);
-                        Element protectedGlovesElement = (Element) glovesElement.getElementsByTagName("isProtected").item(0);
+                if (bNode.getNodeType() == Node.ELEMENT_NODE) {
 
-                        gloves.setPrice(Integer.parseInt(priceGlovesElement.getFirstChild().getNodeValue()));
-                        gloves.setWeight(Double.parseDouble(weightGlovesElement.getFirstChild().getNodeValue()));
-                        gloves.setCompanyName(companyGlovesElement.getFirstChild().getNodeValue());
-                        gloves.setColor(colorGlovesElement.getFirstChild().getNodeValue());
-                        gloves.setIsProtected(Boolean.parseBoolean(protectedGlovesElement.getFirstChild().getNodeValue()));
+                    Element eElement = (Element) bNode;
 
-                    }
+                    LOGGER.info("Boots id : " + eElement.getAttribute("id"));
+                    LOGGER.info("Boots Type : " + eElement.getElementsByTagName("boots-name").item(0).getTextContent());
+                    LOGGER.info("Company name : " + eElement.getElementsByTagName("company-name").item(0).getTextContent());
+                    LOGGER.info("Price : " + eElement.getElementsByTagName("price").item(0).getTextContent());
+                    LOGGER.info("Weight : " + eElement.getElementsByTagName("weight").item(0).getTextContent());
+                    LOGGER.info("Color : " + eElement.getElementsByTagName("color").item(0).getTextContent());
                 }
+            }
+            NodeList gList = doc.getElementsByTagName("gloves-type");
+            for (int temp = 0; temp < gList.getLength(); temp++) {
 
-                Jacket jacket = new Jacket();
+                Node gNode = gList.item(temp);
 
-                NodeList jacketNodeList = ammunElement.getElementsByTagName("jacket");
-                for (int i = 0; i < jacketNodeList.getLength(); i++) {
-                    Node jacketNode = jacketNodeList.item(i);
-                    if (jacketNode.getNodeType() == Node.ELEMENT_NODE) {
-                        Element jacketElement = (Element) jacketNode;
+                LOGGER.info("\nCurrent Element :" + gNode.getNodeName());
 
-                        Element priceJacketElement = (Element) jacketElement.getElementsByTagName("price").item(0);
-                        Element weightJacketElement = (Element) jacketElement.getElementsByTagName("weight").item(0);
-                        Element companyJacketElement = (Element) jacketElement.getElementsByTagName("companyName").item(0);
-                        Element colorJacketElement = (Element) jacketElement.getElementsByTagName("color").item(0);
-                        Element jacketTypeElement = (Element) jacketElement.getElementsByTagName("jacketType").item(0);
-                        Element jacketMaterialElement = (Element) jacketElement.getElementsByTagName("jacketMaterial").item(0);
+                if (gNode.getNodeType() == Node.ELEMENT_NODE) {
 
-                        jacket.setPrice(Integer.parseInt(priceJacketElement.getFirstChild().getNodeValue()));
-                        jacket.setWeight(Double.parseDouble(weightJacketElement.getFirstChild().getNodeValue()));
-                        jacket.setCompanyName(companyJacketElement.getFirstChild().getNodeValue());
-                        jacket.setColor(colorJacketElement.getFirstChild().getNodeValue());
-                    }
+                    Element eElement = (Element) gNode;
+
+                    LOGGER.info("Gloves id : " + eElement.getAttribute("id"));
+                    LOGGER.info("Gloves Material : " + eElement.getElementsByTagName("gloves-material").item(0).getTextContent());
+                    LOGGER.info("Company name : " + eElement.getElementsByTagName("company-name").item(0).getTextContent());
+                    LOGGER.info("Price : " + eElement.getElementsByTagName("price").item(0).getTextContent());
+                    LOGGER.info("Weight : " + eElement.getElementsByTagName("weight").item(0).getTextContent());
+                    LOGGER.info("Color : " + eElement.getElementsByTagName("color").item(0).getTextContent());
+                    LOGGER.info("Is protected? : " + eElement.getElementsByTagName("is-protected").item(0).getTextContent());
                 }
+            }
+            NodeList jList = doc.getElementsByTagName("jacket-type");
+            for (int temp = 0; temp < jList.getLength(); temp++) {
 
-                Pants pants = new Pants();
+                Node jNode = jList.item(temp);
 
-                NodeList pantsNodeList = ammunElement.getElementsByTagName("pants");
-                for (int i = 0; i < pantsNodeList.getLength(); i++) {
-                    Node pantsNode = pantsNodeList.item(i);
-                    if (pantsNode.getNodeType() == Node.ELEMENT_NODE) {
-                        Element pantsElement = (Element) pantsNode;
+                LOGGER.info("\nCurrent Element :" + jNode.getNodeName());
 
-                        Element pricePantsElement = (Element) pantsElement.getElementsByTagName("price").item(0);
-                        Element weightPantsElement = (Element) pantsElement.getElementsByTagName("weight").item(0);
-                        Element companyPantsElement = (Element) pantsElement.getElementsByTagName("companyName").item(0);
-                        Element colorPantsElement = (Element) pantsElement.getElementsByTagName("color").item(0);
-                        Element pantsHaveKevlar = (Element) pantsElement.getElementsByTagName("haveKevlar").item(0);
-                        Element pantsMaterialElement = (Element) pantsElement.getElementsByTagName("pantsMaterial").item(0);
+                if (jNode.getNodeType() == Node.ELEMENT_NODE) {
 
-                        pants.setPrice(Integer.parseInt(pricePantsElement.getFirstChild().getNodeValue()));
-                        pants.setWeight(Double.parseDouble(weightPantsElement.getFirstChild().getNodeValue()));
-                        pants.setCompanyName(companyPantsElement.getFirstChild().getNodeValue());
-                        pants.setColor(colorPantsElement.getFirstChild().getNodeValue());
-                        pants.setHaveKevlar(Boolean.parseBoolean(pantsHaveKevlar.getFirstChild().getNodeValue()));
-                    }
+                    Element eElement = (Element) jNode;
+
+                    LOGGER.info("Jacket id : " + eElement.getAttribute("id"));
+                    LOGGER.info("Jacket Type : " + eElement.getElementsByTagName("jacket-name").item(0).getTextContent());
+                    LOGGER.info("Company name : " + eElement.getElementsByTagName("company-name").item(0).getTextContent());
+                    LOGGER.info("Price : " + eElement.getElementsByTagName("price").item(0).getTextContent());
+                    LOGGER.info("Weight : " + eElement.getElementsByTagName("weight").item(0).getTextContent());
+                    LOGGER.info("Color : " + eElement.getElementsByTagName("color").item(0).getTextContent());
+                    LOGGER.info("Material : " + eElement.getElementsByTagName("jacket-material").item(0).getTextContent());
                 }
+            }
+            NodeList pList = doc.getElementsByTagName("pants-type");
+            for (int temp = 0; temp < pList.getLength(); temp++) {
 
-                ammunition.add(boots);
-                ammunition.add(gloves);
-                ammunition.add(pants);
-                ammunition.add(helm);
-                ammunition.add(jacket);
+                Node pNode = pList.item(temp);
+
+                LOGGER.info("\nCurrent Element :" + pNode.getNodeName());
+
+                if (pNode.getNodeType() == Node.ELEMENT_NODE) {
+
+                    Element eElement = (Element) pNode;
+
+                    LOGGER.info("Pants id : " + eElement.getAttribute("id"));
+                    LOGGER.info("Pants Material : " + eElement.getElementsByTagName("pants-material").item(0).getTextContent());
+                    LOGGER.info("Company name : " + eElement.getElementsByTagName("company-name").item(0).getTextContent());
+                    LOGGER.info("Price : " + eElement.getElementsByTagName("price").item(0).getTextContent());
+                    LOGGER.info("Weight : " + eElement.getElementsByTagName("weight").item(0).getTextContent());
+                    LOGGER.info("Color : " + eElement.getElementsByTagName("color").item(0).getTextContent());
+                    LOGGER.info("Material : " + eElement.getElementsByTagName("pants-material").item(0).getTextContent());
+                    LOGGER.info("Have kevlar? : " + eElement.getElementsByTagName("have-kevlar").item(0).getTextContent());
+                }
             }
         }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
     }
 }
+
 
